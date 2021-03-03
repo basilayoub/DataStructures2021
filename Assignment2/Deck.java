@@ -1,4 +1,4 @@
-public class Deck(){
+public class Deck{
 	
 	/* Implements a Deck of cards */
 
