@@ -67,11 +67,11 @@ public void addFirst(E e){
 /* should add an element on top of the list
 /******************************************************************/
 
-	Node first = new Node(e);  
+	Node <E> first = new Node(e);  
 
 	if(head == null) {  
 
-        head = newNode;  
+        head = first;  
         this.size++;
 
     }  
@@ -91,7 +91,7 @@ public void addLast(E e){
 /* should add an element at the end of the list 
 /******************************************************************/
 
-	Node last = new Node(e);  
+	Node <E> last = new Node(e);  
 
     if(head == null) {   
 
@@ -138,10 +138,9 @@ public void insert(int position, E e){
         Node temp = head;
         for(int i = 0; i < size; i++){
             temp = temp.next;
-            count++;
         }
 
-        Node temp2 = previous.next;
+        Node temp2 = temp.next;
         n1.next = temp2;
         temp.next = n1;
         tail.next = null;
@@ -170,7 +169,6 @@ public E remove(int position, E e){
         Node <E> temp = head;
         for(int i = 0; i < size; i++){
             temp = temp.next;
-            count++;
         }
         Node <E> temp2 = temp.next;
         temp.next = temp2.next;
@@ -228,7 +226,7 @@ public E checkElement(int position){
 
 		}
 
-		return temp.getElement()
+		return temp.getElement();
 
 	}
 
