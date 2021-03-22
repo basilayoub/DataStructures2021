@@ -3,6 +3,8 @@
 
 
 import java.util.Random;
+import java.util.ArrayList;
+
 
 public class CaesarCipher{
 
@@ -13,11 +15,22 @@ public class CaesarCipher{
 
 	public CaesarCipher(){
 
-		for(int k=0; k<26; k++){
+		
+
+		int randNum =(int)(Math.random() * 5);
+
+		System.out.println(randNum);
 
 
-			decoder[k] = (char)('A' + (k+(int)(Math.random())));
-			encoder[k] = (char)('A' + (int)(Math.random() * 30));
+		for(int k=0; k < 26; k++){
+
+			
+
+			encoder[k] = (char)('A' + (k + randNum));
+			decoder[k] = (char)('A' + ((k - randNum + 26 ) % 26));
+
+			
+
 
 
 
@@ -35,6 +48,18 @@ public class CaesarCipher{
 				encoder[k] = '=';
 			}
 
+			if (decoder[k] == '['){
+				decoder[k] = '#';
+			}
+			else if (decoder[k] == '^'){
+				decoder[k] = '$';
+			}
+			else if (decoder[k] == '\\'){
+				decoder[k] = '&';
+			}
+			else if (decoder[k] == ']'){
+				decoder[k] = '=';
+			}
 
 		}
 	}
@@ -58,12 +83,15 @@ public class CaesarCipher{
 		char[] msg = original.toCharArray();
 		for(int k=0; k< msg.length; k++){
 
-			if(Character.isUpperCase(msg[k])){
+			if((Character.isUpperCase(msg[k]))){
+				
 
 				int j = msg[k] - 'A';
 				msg[k] = code[j];
 
 			}
+			
+			
 			
 
 		}
@@ -71,10 +99,10 @@ public class CaesarCipher{
 		return new String(msg);
 
 
+
 	}
 
 		
-
 
 	public static void main(String[] args){
 		/*main method for testing the Caesar Cipher*/
@@ -86,8 +114,8 @@ public class CaesarCipher{
 		String message = "THE EAGLE IS IN PLAY; MEET AT JOE'S";
 		String coded = cipher.encrypt(message);
 		String answer = cipher.decrypt(coded);
-		System.out.println("Secret: "+ answer);
-		System.out.println("Message: " + coded);
+		System.out.println("Secret: "+ coded);
+		System.out.println("Message: " + answer);
 
 
 
