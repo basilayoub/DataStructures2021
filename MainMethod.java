@@ -8,15 +8,43 @@ import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Random;
 
-public class mainMethod
+public class MainMethod{
 
-public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	Scanner input = new Scanner(System.in);
-	System.out.println("Start game [y]/[n]: ");
+		static boolean play = true;
 
-    String gameDecision = input.nextLine(); 
+		while(play){
+			Scanner input = new Scanner(System.in);
+			System.out.println("Start game [y]/[n]: ");
 
+		    String gameDecision = input.nextLine(); 
+
+		    if(gameDecision.equals("y")){
+
+		    	LinkedList<Deck> p1 = new LinkedList<Deck>;
+		    	LinkedList<Deck> p1 = new LinkedList<Deck>;
+
+		    	if(p1.isEmpty()){
+		    		System.out.println("Player 2 wins");
+		    	}
+		    	if(p2.isEmpty()){
+		    		System.out.println("Player 2 wins");
+		    	}
+
+		    }
+		    else if (gameDecision.equals("n")){
+		    	System.out.println("Goodbye!");
+		    }
+		    else{
+		    	System.out.println("Please enter either y of n!");;
+		    }
+		}
+
+		
+
+	}
 
 
 }
+
